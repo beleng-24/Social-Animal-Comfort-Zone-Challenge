@@ -9,8 +9,8 @@ root.geometry("500x500")
 
 #Define our Font
 my_font = Font(
-    family="Brush Script MT",
-    size=30,
+    family="American Typewriter",
+    size=20,
     weight="bold")
 
 #create frame
@@ -20,8 +20,8 @@ my_frame.pack(pady=10)
 #create listbox
 my_list= Listbox(my_frame,
     font=my_font,
-    width=25,
-    height=5,
+    width=30,
+    height=10,
     bg="SystemButtonFace",
     bd=0,
     fg="#464646",
@@ -30,12 +30,6 @@ my_list= Listbox(my_frame,
     activestyle="none")
 
 my_list.pack(side=LEFT, fill=BOTH)
-
-#create dummy list
-#stuff=["Walk the Dog","Buy Groceries","Take a Nap","Learn Python","Learn Tkinter", "Rule the world"]
-#add dummy list to list box
-#or item in stuff:
-    #my_list.insert(END, item)
 
 #Create scrollbar
 my_scrollbar=Scrollbar(my_frame)
@@ -46,7 +40,7 @@ my_list.config(yscrollcommand=my_scrollbar.set)
 my_scrollbar.config(command=my_list.yview)
 
 #Create entry box to add items to the list
-my_entry= Entry(root, font=("Helvetica", 24), width=26)
+my_entry= Entry(root, font=("American Typewriter", 24), fg="#000000", width=27, bg="#FFFFFF")
 my_entry.pack(pady=20)
 
 #Create a button frame
@@ -65,7 +59,7 @@ def cross_off_item():
     #Cross off item
     my_list.itemconfig(
         my_list.curselection(),
-        fg="#dedede")
+        fg="#dedede",)
     #Get rid of selection bar
     my_list.selection_clear(0, END)
 
@@ -84,6 +78,12 @@ def  delete_crossed():
             my_list.delete(my_list.index(count))
         else:
             count += 1
+#create default list
+def default_list():
+    stuff=["Have a conversation with a stranger","Volunteer","Go out to eat alone","Checkout with a cashier instead of self-checkout","Give someone a compliment", "Smile at a stranger, Go to an event, "]
+#add default list to list box
+    for item in stuff:
+        my_list.insert(END, item)
 
 def save_list():
     file_name=filedialog.asksaveasfilename(
@@ -163,11 +163,13 @@ add_button=Button(button_frame, text="Add Item",command=add_item)
 cross_off_button=Button(button_frame, text="Cross Off Item",command=cross_off_item)
 uncross_button=Button(button_frame, text="Uncross Item",command=uncross_item)
 delete_crossed_button=Button(button_frame, text="Delete crossed",command=delete_crossed)
+default_button=Button(button_frame, text="Challenge",command=default_list)
 
-delete_button.grid(row=0, column=0)
-add_button.grid(row=0, column=1, padx=20)
-cross_off_button.grid(row=0, column=2)
-uncross_button.grid(row=0, column=3, padx=20)
-delete_crossed_button.grid(row=0, column=4)
+default_button.grid(row=0, column=0)
+delete_button.grid(row=0, column=1, padx=20)
+add_button.grid(row=0, column=2)
+cross_off_button.grid(row=0, column=3, padx=20)
+uncross_button.grid(row=0, column=4,)
+delete_crossed_button.grid(row=0, column=5, padx=20)
 
 root.mainloop()
