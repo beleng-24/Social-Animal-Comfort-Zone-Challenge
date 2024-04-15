@@ -55,6 +55,7 @@ def add_item():
     my_list.insert(END, my_entry.get())
     my_entry.delete(0, END)
 
+accomplished=[]
 def cross_off_item():
     #Cross off item
     my_list.itemconfig(
@@ -62,6 +63,33 @@ def cross_off_item():
         fg="#dedede",)
     #Get rid of selection bar
     my_list.selection_clear(0, END)
+    #Add crossed off item to accomplished list
+    accomplished.append(my_list.get(ANCHOR))
+    #Delete crossed off item
+    my_list.delete(ANCHOR)
+
+def accomplish_window():
+    #Create a new window
+    accomplishment_window=Toplevel(root)
+    accomplishment_window.title("Accomplishments")
+    accomplishment_window.geometry("500x500")
+
+    #Create a listbox
+    my_accomplishment_list=Listbox(accomplishment_window,
+    font=my_font,
+    width=30,
+    height=10,
+    bg="SystemButtonFace",
+    bd=0,
+    fg="#464646",
+    highlightthickness=0,
+    selectbackground="#a6a6a6",
+    activestyle="none")
+    my_accomplishment_list.pack(pady=20)
+    
+    for item in accomplished:
+        my_accomplishment_list.insert(END, item)
+
 
 def uncross_item():
     #Cross off item
@@ -164,12 +192,15 @@ cross_off_button=Button(button_frame, text="Cross Off Item",command=cross_off_it
 uncross_button=Button(button_frame, text="Uncross Item",command=uncross_item)
 delete_crossed_button=Button(button_frame, text="Delete crossed",command=delete_crossed)
 default_button=Button(button_frame, text="Challenge",command=default_list)
+accomp_button=Button(button_frame, text="Accomplishments",command=accomplish_window)
+
 
 default_button.grid(row=0, column=0)
-delete_button.grid(row=0, column=1, padx=20)
-add_button.grid(row=0, column=2)
-cross_off_button.grid(row=0, column=3, padx=20)
-uncross_button.grid(row=0, column=4,)
-delete_crossed_button.grid(row=0, column=5, padx=20)
+accomp_button.grid(row=0, column=1, padx=20)
+delete_button.grid(row=0, column=2)
+add_button.grid(row=0, column=3, padx=20)
+cross_off_button.grid(row=0, column=4)
+uncross_button.grid(row=0, column=5, padx=20)
+delete_crossed_button.grid(row=0, column=6)
 
 root.mainloop()
