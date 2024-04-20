@@ -32,7 +32,7 @@ my_list= Listbox(my_frame,
 my_list.pack(side=LEFT, fill=BOTH)
 
 #Create default list
-stuff=["Have a conversation with a stranger","Volunteer","Go out to eat alone","Checkout with a cashier instead of self-checkout","Give someone a compliment", "Smile at a stranger, Go to an event, "]
+stuff=["Smile at a stranger","Say \n'hello'\n to someone","Checkout with a cashier","Sit at at table with strangers","Go out to eat alone","Give someone a compliment","Take a selfie","Volunteer","Go to an event","Have a conversation with a stranger"]
 #add default list to list box
 for item in stuff:
     my_list.insert(END, item)
