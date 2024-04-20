@@ -2,11 +2,14 @@ from tkinter import *
 from tkinter.font import Font 
 from tkinter import filedialog
 import pickle
+import random
 
 root=Tk()
 root.title("Social Animal")
 root.geometry("500x500")
 
+label_display=Label(root, text="Social Animal Challenge",font=("American Typewriter", 24))
+label_display.pack(pady=20)
 #Define our Font
 my_font = Font(
     family="American Typewriter",
@@ -73,6 +76,13 @@ def cross_off_item():
     accomplished.append(my_list.get(ANCHOR))
     #Delete crossed off item
     my_list.delete(ANCHOR)
+
+def choose_random():
+    #Choose a random task
+    task= random.choice(stuff)
+    #Update our entry box with the random task
+    label_display["text"]=task
+    
 
 def accomplish_window():
     #Create a new window
@@ -173,10 +183,12 @@ delete_button=Button(button_frame, text="Delete Item",command=delete_item)
 add_button=Button(button_frame, text="Add Item",command=add_item)
 cross_off_button=Button(button_frame, text="Cross Off",command=cross_off_item)
 accomp_button=Button(button_frame, text="Accomplishments",command=accomplish_window)
+random_button=Button(button_frame, text="Random",command=choose_random)
 
 accomp_button.grid(row=0, column=1, padx=20)
 delete_button.grid(row=0, column=2)
 add_button.grid(row=0, column=3, padx=20)
 cross_off_button.grid(row=0, column=4)
+random_button.grid(row=0, column=5, padx=20)
 
 root.mainloop()
