@@ -96,15 +96,6 @@ def accomplish_window():
     for item in accomplished:
         my_accomplishment_list.insert(END, item)
 
-
-def uncross_item():
-    #Cross off item
-    my_list.itemconfig(
-        my_list.curselection(),
-        fg="#464646")
-    #Get rid of selection bar
-    my_list.selection_clear(0, END)
-
 def save_list():
     file_name=filedialog.asksaveasfilename(
         initialdir="C:/gui/data",
@@ -180,14 +171,12 @@ file_menu.add_command(label="Clear List", command=delete_list)
 #Add some buttons
 delete_button=Button(button_frame, text="Delete Item",command=delete_item)
 add_button=Button(button_frame, text="Add Item",command=add_item)
-cross_off_button=Button(button_frame, text="Cross Off Item",command=cross_off_item)
-uncross_button=Button(button_frame, text="Uncross Item",command=uncross_item)
+cross_off_button=Button(button_frame, text="Cross Off",command=cross_off_item)
 accomp_button=Button(button_frame, text="Accomplishments",command=accomplish_window)
 
 accomp_button.grid(row=0, column=1, padx=20)
 delete_button.grid(row=0, column=2)
 add_button.grid(row=0, column=3, padx=20)
 cross_off_button.grid(row=0, column=4)
-uncross_button.grid(row=0, column=5, padx=20)
 
 root.mainloop()
