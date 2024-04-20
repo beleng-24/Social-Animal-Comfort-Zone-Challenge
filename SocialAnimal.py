@@ -31,6 +31,12 @@ my_list= Listbox(my_frame,
 
 my_list.pack(side=LEFT, fill=BOTH)
 
+#Create default list
+stuff=["Have a conversation with a stranger","Volunteer","Go out to eat alone","Checkout with a cashier instead of self-checkout","Give someone a compliment", "Smile at a stranger, Go to an event, "]
+#add default list to list box
+for item in stuff:
+    my_list.insert(END, item)
+
 #Create scrollbar
 my_scrollbar=Scrollbar(my_frame)
 my_scrollbar.pack(side=RIGHT, fill=BOTH)
@@ -98,13 +104,6 @@ def uncross_item():
         fg="#464646")
     #Get rid of selection bar
     my_list.selection_clear(0, END)
-
-#create default list
-def default_list():
-    stuff=["Have a conversation with a stranger","Volunteer","Go out to eat alone","Checkout with a cashier instead of self-checkout","Give someone a compliment", "Smile at a stranger, Go to an event, "]
-#add default list to list box
-    for item in stuff:
-        my_list.insert(END, item)
 
 def save_list():
     file_name=filedialog.asksaveasfilename(
@@ -183,11 +182,8 @@ delete_button=Button(button_frame, text="Delete Item",command=delete_item)
 add_button=Button(button_frame, text="Add Item",command=add_item)
 cross_off_button=Button(button_frame, text="Cross Off Item",command=cross_off_item)
 uncross_button=Button(button_frame, text="Uncross Item",command=uncross_item)
-default_button=Button(button_frame, text="Challenge",command=default_list)
 accomp_button=Button(button_frame, text="Accomplishments",command=accomplish_window)
 
-
-default_button.grid(row=0, column=0)
 accomp_button.grid(row=0, column=1, padx=20)
 delete_button.grid(row=0, column=2)
 add_button.grid(row=0, column=3, padx=20)
