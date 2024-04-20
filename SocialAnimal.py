@@ -99,13 +99,6 @@ def uncross_item():
     #Get rid of selection bar
     my_list.selection_clear(0, END)
 
-def  delete_crossed():
-    count=0
-    while count < my_list.size():
-        if my_list.itemcget(count, "fg") =="#dedede":
-            my_list.delete(my_list.index(count))
-        else:
-            count += 1
 #create default list
 def default_list():
     stuff=["Have a conversation with a stranger","Volunteer","Go out to eat alone","Checkout with a cashier instead of self-checkout","Give someone a compliment", "Smile at a stranger, Go to an event, "]
@@ -190,7 +183,6 @@ delete_button=Button(button_frame, text="Delete Item",command=delete_item)
 add_button=Button(button_frame, text="Add Item",command=add_item)
 cross_off_button=Button(button_frame, text="Cross Off Item",command=cross_off_item)
 uncross_button=Button(button_frame, text="Uncross Item",command=uncross_item)
-delete_crossed_button=Button(button_frame, text="Delete crossed",command=delete_crossed)
 default_button=Button(button_frame, text="Challenge",command=default_list)
 accomp_button=Button(button_frame, text="Accomplishments",command=accomplish_window)
 
@@ -201,6 +193,5 @@ delete_button.grid(row=0, column=2)
 add_button.grid(row=0, column=3, padx=20)
 cross_off_button.grid(row=0, column=4)
 uncross_button.grid(row=0, column=5, padx=20)
-delete_crossed_button.grid(row=0, column=6)
 
 root.mainloop()
