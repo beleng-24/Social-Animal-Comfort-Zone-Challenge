@@ -5,9 +5,9 @@ SPRINT 1:
 
 SPRINT 2:
 
-- [ ] Work out problems within the code and apply solutions
-- [ ] Modify code and commit changes with commments
-- [ ] Track progress in projectroadmap by checking off completed tasks and adding new ones when neccessary
+- [x] Work out problems within the code and apply solutions
+- [x] Modify code and commit changes with commments
+- [x] Track progress in projectroadmap by checking off completed tasks and adding new ones when neccessary
 
 SPRINT 3:
 
