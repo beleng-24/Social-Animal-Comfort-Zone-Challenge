@@ -6,7 +6,7 @@ import random
 
 root=Tk()
 root.title("Social Animal")
-root.geometry("500x500")
+root.geometry("520x520")
 
 label_display=Label(root, text="Social Animal Challenge",font=("American Typewriter", 24))
 label_display.pack(pady=20)
@@ -185,10 +185,10 @@ cross_off_button=Button(button_frame, text="Cross Off",command=cross_off_item)
 accomp_button=Button(button_frame, text="Accomplishments",command=accomplish_window)
 random_button=Button(button_frame, text="Random",command=choose_random)
 
-accomp_button.grid(row=0, column=1, padx=20)
+accomp_button.grid(row=0, column=1)
 delete_button.grid(row=0, column=2)
-add_button.grid(row=0, column=3, padx=20)
+add_button.grid(row=0, column=3)
 cross_off_button.grid(row=0, column=4)
-random_button.grid(row=0, column=5, padx=20)
+random_button.grid(row=0, column=5)
 
 root.mainloop()
