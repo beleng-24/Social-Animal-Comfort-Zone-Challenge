@@ -91,6 +91,7 @@ def accomplish_window():
     accomplishment_window.geometry("500x500")
 
     #Create a listbox
+    global my_accomplishment_list
     my_accomplishment_list=Listbox(accomplishment_window,
     font=my_font,
     width=30,
@@ -129,12 +130,16 @@ def save_list():
                 count += 1
         #Grab all the stuff from the list
         stuff=my_list.get(0, END)
+        #Grab all the stuff from the list
+        stuff=my_list.get(0, END)
 
         #Open the file
         output_file=open(file_name, 'wb')
 
         #Add the stuff to the file
-        pickle.dump(stuff, output_file)      
+        pickle.dump(stuff, output_file)   
+        #Add the accomplished items to the file
+        pickle.dump(accomplished, output_file)   
 
 def open_list():
     pass
@@ -154,10 +159,15 @@ def open_list():
 
         #Load the data from the file
         stuff=pickle.load(input_file)
+        #Load the data from the file
+        accomplished=pickle.load(input_file)
 
         #Output stuff to the screen
         for item in stuff:
             my_list.insert(END, item)
+        #Output accomplished to the screen
+        for item in accomplished:
+            my_accomplishment_list.insert(END, item)
 
 def delete_list():
     my_list.delete(0, END)
