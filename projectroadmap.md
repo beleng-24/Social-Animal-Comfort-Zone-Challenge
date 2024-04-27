@@ -11,5 +11,5 @@ SPRINT 2:
 
 SPRINT 3:
 
-- [ ] Continue coding and refining 
-- [ ] Create PowerPoint Slide
+- [x] Continue coding and refining 
+- [x] Create PowerPoint Slide
