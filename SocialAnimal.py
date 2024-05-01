@@ -130,8 +130,6 @@ def save_list():
                 count += 1
         #Grab all the stuff from the list
         stuff=my_list.get(0, END)
-        #Grab all the stuff from the list
-        stuff=my_list.get(0, END)
 
         #Open the file
         output_file=open(file_name, 'wb')
@@ -171,6 +169,7 @@ def open_list():
 
 def delete_list():
     my_list.delete(0, END)
+    my_accomplishment_list.delete(0, END)
 
 
 #create menu
