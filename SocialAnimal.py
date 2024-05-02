@@ -79,7 +79,7 @@ def cross_off_item():
 
 def choose_random():
     #Choose a random task
-    task= random.choice(stuff)
+    task= random.choice(my_list.get(0, END))
     #Update our entry box with the random task
     label_display["text"]=task
     
